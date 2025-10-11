@@ -1,0 +1,255 @@
+body{
+    background: linear-gradient(
+        180deg,
+        #07071a 0%,
+        #07071a 90px,
+        #11244a 180px,
+        #32cde2 100%
+    );
+    background-repeat: no-repeat;
+    margin: 0px;
+}
+
+h1{
+    color: #F2F0E6; 
+    margin: 25px 0 0 190px;
+    font-family: Quantico, Arial, Helvetica;
+    font-size: 2.5em;
+    line-height: 1.1;
+}
+
+.title h1{
+    opacity: 0;
+}
+
+.title h1:nth-of-type(1){
+    animation: titleDrop 0.9s ease-out forwards 0.1s;
+}
+
+.title h1:nth-of-type(2){
+    animation: titleSlideLeft 1s ease-out forwards 0.4s;
+}
+
+.title h1:nth-of-type(3){
+    animation: titleRise 1s ease-out forwards 0.7s;
+}
+
+.letterA{
+    display: inline-block;
+    position: relative;
+    top: 40px;
+    left: 180px;
+    transform-origin: bottom left;
+    -webkit-box-reflect: below 0px linear-gradient(to bottom, rgba(0,0,0,0), rgba(0, 0, 0, 0.1));
+    animation: letterASlideBrake 2s cubic-bezier(0.25, 0.9, 0.3, 1);
+}
+
+
+
+.title{
+    margin-top: 160px;
+    display:inline-block;
+}
+
+.title-name{
+    display: flex;
+    align-items: flex-end;
+}
+
+.title-letter{
+    display: inline-flex;
+    align-items: flex-end;
+    height: 1em;
+    margin-left: 0.35em;
+}
+
+.title-letter img{
+    height: 1.2em;
+    width: auto;
+    transform: translateY(-0.15em);
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    background-color: rgb(7, 7, 26);
+}
+
+.nav-logo{
+    margin-right: 1.5rem;
+}
+
+.nav-logo img{
+    height: 52px;
+    width: auto;
+    display: block;
+}
+
+.navbar ul{
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.navbar a{
+    color: #063c59;
+    text-decoration: none;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-width: 70px;
+    min-height: 60px;
+    overflow: hidden;
+}
+
+.navbar li{
+    float: none;
+}
+
+.nav-icon{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    transform: translate(-50%, -50%);
+}
+
+.nav-icon i{
+    font-size: 2.2rem;
+    color: inherit;
+}
+
+.nav-label{
+    color: #10dfff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    opacity: 0;
+    transform: translate(-50%, 40%);
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    white-space: nowrap;
+    font-weight: 600;
+    font-family: Quantico, Arial, Helvetica;
+    letter-spacing: 0.05em;
+}
+
+.navbar a:hover .nav-icon,
+.navbar a:focus-visible .nav-icon{
+    opacity: 0;
+    transform: translate(-50%, -80%);
+}
+
+.navbar a:hover .nav-label,
+.navbar a:focus-visible .nav-label{
+    opacity: 1;
+    transform: translate(-50%, -50%);
+}
+
+/* watch button */
+.btn {
+  margin: 40px 190px ;  
+  font-size: 1.2rem;
+  font-family: Quantico, Arial, Helvetica;
+  padding: 1rem 2.5rem;
+  border: none;
+  outline: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  background-color: #1c1c3b;
+  color: rgb(234, 234, 234);
+  font-weight: 700;
+  transition: 0.6s;
+  box-shadow: 0px 0px 60px #1f4c65;
+  -webkit-box-reflect: below 6px linear-gradient(to bottom, rgba(0,0,0,0), rgba(0,0,0,0.2));
+  opacity: 0;
+  transform: scale(0.85);
+  animation: btnGlowReveal 1.1s ease forwards 1.2s;
+}
+
+.btn:active {
+  scale: 0.93;
+}
+
+.btn:hover {
+  background: rgb(2,29,78);
+  background: linear-gradient(270deg, rgba(2, 29, 78, 0.681) 0%, rgba(31, 215, 232, 0.873) 60%);
+  color: rgb(4, 4, 38);
+}
+
+@keyframes titleDrop{
+    from{
+        transform: translateY(-200px);
+        opacity: 1;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes titleSlideLeft{
+    from{
+        transform: translateX(-200px);
+        opacity: 0;
+    }
+    to{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes titleRise{
+    from{
+        transform: translateY(170px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes btnGlowReveal{
+    0%{
+        opacity: 0;
+        transform: scale(0.7);
+        box-shadow: 0px 0px 0px rgba(31, 76, 101, 0.2);
+    }
+    60%{
+        opacity: 1;
+        transform: scale(1.05);
+        box-shadow: 0px 0px 90px rgba(16, 223, 255, 0.65);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0px 0px 60px #1f4c65;
+    }
+}
+
+
+@keyframes letterASlideBrake{
+    0%{
+        transform: translateX(700px) rotate(0deg);
+    }
+    45%{
+        transform: translateX(700px) rotate(0deg);
+    }
+    85%{
+        transform: translateX(0px) rotate(-32deg);
+        animation-timing-function: cubic-bezier(0, 0, 1, 1); 
+    }
+    100%{
+        transform: translateX(0) rotate(0deg);
+    }
+}
