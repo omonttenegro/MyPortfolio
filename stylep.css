@@ -125,25 +125,62 @@ h1{
 
 
 .card {
-    width: 190px;
+    width: 230px;
     height: 120px;
     padding: 0.5rem;
-    background: rgba(198, 198, 198, 0.34);
     border-radius: 8px;
     backdrop-filter: blur(5px);
     border-bottom: 3px solid rgba(255, 255, 255, 0.440);
-    border-left: 2px  rgba(255, 255, 255, 0.545) outset;
+    border-left: 2px rgba(255, 255, 255, 0.545) outset;
     box-shadow: -40px 50px 30px rgba(0, 0, 0, 0.280);
     transform: skewX(10deg);
     transition: .4s;
     overflow: hidden;
     color: white;
-    margin: 60px 170px;
+    margin: 60px 0px;
+    position: relative;
+
+    background-image: var(--card-bg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.15);
+    transition: .4s;
+    z-index: 1;
+}
+
+.card > * {
+    position: relative;
+    z-index: 2;
 }
 
 .card:hover {
-    height: 254px;
+    height: 300px;
+    width: 290px;
     transform: skew(0deg);
+}
+
+.card:hover h2 {
+    margin-top: 1.2rem;          /* desce um pouco no hover */
+    text-shadow:
+        0 0 6px rgba(0, 0, 0, 0.75),
+        -8px 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.card:hover p {
+    opacity: 1;                  /* mostra */
+    max-height: 120px;
+    margin-top: 0.6rem;
+}
+
+.card:hover::before {
+    background: rgba(3, 21, 57, 0.75);
 }
 
 .align {
@@ -152,8 +189,9 @@ h1{
     flex-direction: row;
     gap: 5px;
     align-self: flex-start;
-}
 
+    transform: translate(-10px, -10px);
+}
 .red {
     width: 10px;
     height: 10px;
@@ -178,9 +216,71 @@ h1{
     box-shadow: -5px 5px 5px rgba(0, 0, 0, 0.280);
 }
 
-.card h1 {
+.card h2 {
     text-align: center;
-    margin: 1.3rem;
+    margin: 0.4rem 0 0.4rem 0;   /* mais para cima */
     color: rgb(218, 244, 237);
-    text-shadow: -10px 5px 10px rgba(0, 0, 0, 0.573);
+    text-shadow:
+        0 0 8px rgba(0, 0, 0, 0.9),
+        0 0 18px rgba(0, 0, 0, 0.8),
+        -10px 5px 14px rgba(0, 0, 0, 0.75);
+    transition: .4s;
+    font-family: "Orbitron", sans-serif;
+}
+
+.card p {
+    text-align: center;
+    padding: 0 0.5rem;
+    text-shadow: -5px 3px 8px rgba(0, 0, 0, 0.7);
+    opacity: 0;                  /* esconde */
+    max-height: 0;               /* colapsa */
+    overflow: hidden;
+    transition: .4s;
+    margin: 0;
+    font-family: "Orbitron", sans-serif;
+}
+
+
+.cards-container {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.cards-container .card:first-child {
+    margin-left: 190px;
+}
+
+.shadow__btn {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: 0.4s;
+
+  padding: 10px 20px;
+  border: none;
+  font-size: 17px;
+  color: #fff;
+  border-radius: 7px;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: rgb(0,140,255);
+  box-shadow: 0 0 25px rgb(0,140,255);
+}
+
+.card:hover .shadow__btn {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.shadow__btn:hover {
+  box-shadow: 0 0 5px rgb(0,140,255),
+              0 0 25px rgb(0,140,255),
+              0 0 50px rgb(0,140,255),
+              0 0 100px rgb(0,140,255);
 }
