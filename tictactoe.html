@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="icon2.png">
+        <link rel="shortcut icon" type="image/png" href="icon2.png">
+        <link rel="apple-touch-icon" href="icon2.png">
+        <link rel="stylesheet" href="stylet.css">
+        <script src="https://kit.fontawesome.com/57dbc1bff3.js" crossorigin="anonymous"></script>
+        <title>Tic-Tac-Toe AI | Andre's Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="home.html">
+                    <img src="icon2.png" alt="Logo">
+                </a>
+            </div>
+            <ul>
+                <li>
+                    <a href="home.html">
+                        <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+                        <span class="nav-label">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
+                        <span class="nav-label">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="work.html">
+                        <span class="nav-icon"><i class="fa-solid fa-suitcase"></i></span>
+                        <span class="nav-label">Work</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="portfolio.html">
+                        <span class="nav-icon"><i class="fa-solid fa-folder-open" style="color: #10dfff;"></i></span>
+                        <span class="nav-label">Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span class="nav-icon"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="nav-label">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="project-page">
+            <section class="hero-layout">
+                <div class="hero-copy">
+                    <p class="eyebrow">Project spotlight</p>
+                    <h1>AI Tic-Tac-Toe</h1>
+                    <p class="intro">
+                        This project was originally built in Python and later migrated to JavaScript
+                        for this web version, keeping the same Minimax-driven game logic while making
+                        it directly playable inside the portfolio.
+                    </p>
+
+                    <div class="meta-list">
+                        <div class="meta-pill">Minimax decision-making</div>
+                        <div class="meta-pill">Instant browser demo</div>
+                        <div class="meta-pill">Responsive game layout</div>
+                        <div class="meta-pill">Unbeatable AI opponent</div>
+                        <div class="meta-pill">Interactive game state handling</div>
+                    </div>
+
+                    <div class="actions">
+                        <a class="primary-link" href="https://github.com/omonttenegro/AI_Tictactoe/tree/main" target="_blank" rel="noopener noreferrer">View code</a>
+                        <a class="secondary-link" href="portfolio.html">Back to projects</a>
+                        
+                    </div>
+
+                    <section class="details-grid">
+                        <article class="info-card">
+                            <h2>Core logic</h2>
+                            <ul>
+                                <li>Board state tracking</li>
+                                <li>Win, draw, and turn resolution</li>
+                                <li>Minimax search for best move selection</li>
+                            </ul>
+                        </article>
+                    </section>
+                </div>
+
+                <section class="demo-panel" id="live-demo">
+                    <div class="demo-topbar">
+                        <div>
+                            <p class="status-label">Live demo</p>
+                            <p class="status-text" id="status-text">Choose whether you want to play as X or O.</p>
+                        </div>
+                        <button class="secondary-link control-button" id="restart-button" type="button">Restart</button>
+                    </div>
+
+                    <div class="demo-controls">
+                        <div class="player-picker">
+                            <button class="player-button" data-player="X" type="button">Play as X</button>
+                            <button class="player-button" data-player="O" type="button">Play as O</button>
+                        </div>
+                        <p class="control-note" id="turn-indicator">Waiting for player selection.</p>
+                    </div>
+
+                    <div class="board" aria-label="Tic-Tac-Toe board" role="grid">
+                        <button class="cell" data-row="0" data-col="0" type="button" aria-label="Row 1 Column 1"></button>
+                        <button class="cell" data-row="0" data-col="1" type="button" aria-label="Row 1 Column 2"></button>
+                        <button class="cell" data-row="0" data-col="2" type="button" aria-label="Row 1 Column 3"></button>
+                        <button class="cell" data-row="1" data-col="0" type="button" aria-label="Row 2 Column 1"></button>
+                        <button class="cell" data-row="1" data-col="1" type="button" aria-label="Row 2 Column 2"></button>
+                        <button class="cell" data-row="1" data-col="2" type="button" aria-label="Row 2 Column 3"></button>
+                        <button class="cell" data-row="2" data-col="0" type="button" aria-label="Row 3 Column 1"></button>
+                        <button class="cell" data-row="2" data-col="1" type="button" aria-label="Row 3 Column 2"></button>
+                        <button class="cell" data-row="2" data-col="2" type="button" aria-label="Row 3 Column 3"></button>
+                    </div>
+                </section>
+            </section>
+        </main>
+
+        <script src="tictactoedemo.js"></script>
+    </body>
+</html>

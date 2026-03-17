@@ -1,4 +1,11 @@
+html{
+    height: 100%;
+    background: #07071a;
+    overscroll-behavior: none;
+}
+
 body{
+    min-height: 100vh;
     background: linear-gradient(
         180deg,
         #07071a 0%,
@@ -8,6 +15,7 @@ body{
     );
     background-repeat: no-repeat;
     margin: 0px;
+    overflow: hidden;
 }
 
 h1{
