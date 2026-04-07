@@ -26,6 +26,9 @@ h1{
     font-family: Quantico, Arial, Helvetica;
     font-size: 2.8em;
     line-height: 1.1;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: projectsFadeIn 0.6s ease forwards;
 }
 
 .navbar{
@@ -154,6 +157,24 @@ h1{
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 0;
+    animation: cardEntry 0.72s ease forwards;
+}
+
+.cards-container .card:nth-child(1) {
+    animation-delay: 0.14s;
+}
+
+.cards-container .card:nth-child(2) {
+    animation-delay: 0.24s;
+}
+
+.cards-container .card:nth-child(3) {
+    animation-delay: 0.34s;
+}
+
+.cards-container .card:nth-child(4) {
+    animation-delay: 0.44s;
 }
 
 .card::before {
@@ -307,4 +328,26 @@ h1{
               0 0 25px rgb(0,140,255),
               0 0 50px rgb(0,140,255),
               0 0 100px rgb(0,140,255);
+}
+
+@keyframes projectsFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes cardEntry {
+    from {
+        opacity: 0;
+        transform: skewX(10deg) translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: skewX(10deg) translateY(0);
+    }
 }

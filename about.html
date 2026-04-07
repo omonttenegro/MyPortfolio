@@ -52,5 +52,127 @@
             </ul>
         </nav>
         <h1>About me</h1>
+        <main class="about-content">
+            <section class="about-text">
+                <div class="about-intro">
+                    <span class="intro-line">Computer Engineering student at the University of Lisbon</span>
+                </div>
+
+                <div class="info-cards">
+                    <article class="info-card glow-card">
+                        <div class="glow-scan" aria-hidden="true"></div>
+                        <h2>Profile</h2>
+                        <ul>
+                            <li>Computer Engineering student focused on technology, problem-solving, and practical digital solutions.</li>
+                            <li>Motivated by continuous learning and driven by the challenge of turning ideas into functional outcomes.</li>
+                        </ul>
+                    </article>
+
+                    <article class="info-card glow-card">
+                        <div class="glow-scan" aria-hidden="true"></div>
+                        <h2>AI Focous</h2>
+                        <ul>
+                            <li>Interested in artificial intelligence and its practical applications in real-world contexts.</li>
+                            <li>Especially focused on systems that improve decision-making, efficiency, and user experience</em>.</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+
+            <section class="about-skills glow-card">
+                <div class="glow-scan" aria-hidden="true"></div>
+                <div class="skills-reveal" aria-hidden="true">
+                    <span>Driven by innovation</span>
+                </div>
+                <h2>Languages and tools</h2>
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>Java</span>
+                            <span>3-4 years</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 96%;"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>C++</span>
+                            <span>3-4 years</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 92%;"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>C</span>
+                            <span>2-3 years</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 78%;"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>Python</span>
+                            <span>2-3 years</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 74%;"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>SQL</span>
+                            <span>2 years</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 66%;"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>Git</span>
+                            <span>2 years</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 62%;"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>HTML</span>
+                            <span>2 years</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 58%;"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>CSS</span>
+                            <span>2 years</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 54%;"></span></div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-row">
+                            <span>Haskell</span>
+                            <span>1 year</span>
+                        </div>
+                        <div class="skill-bar"><span style="width: 36%;"></span></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <script>
+            const glowCards = document.querySelectorAll('.glow-card');
+
+            glowCards.forEach((card) => {
+                card.addEventListener('mousemove', (event) => {
+                    const rect = card.getBoundingClientRect();
+                    const x = event.clientX - rect.left;
+                    const y = event.clientY - rect.top;
+
+                    card.style.setProperty('--glow-x', `${x}px`);
+                    card.style.setProperty('--glow-y', `${y}px`);
+                });
+            });
+        </script>
     </body>
 </html>

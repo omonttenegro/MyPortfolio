@@ -23,10 +23,13 @@ body{
 
 h1{
     color: #F2F0E6; 
-    margin: 110px 0 0 130px;
+    margin: 96px 0 0 130px;
     font-family: Quantico, Arial, Helvetica;
     font-size: 2.8em;
     line-height: 1.1;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeRise 0.6s ease forwards;
 }
 
 pre{
@@ -132,4 +135,391 @@ pre{
 .navbar a:focus-visible .nav-label{
     opacity: 1;
     transform: translate(-50%, -50%);
+}
+
+.about-content{
+    margin: 44px 130px 0;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 52px;
+    align-items: start;
+    color: #F2F0E6;
+    font-family: Quantico, Arial, Helvetica;
+}
+
+.about-intro{
+    margin: 0 0 22px;
+    display: grid;
+    gap: 2px;
+    opacity: 0;
+    transform: translateY(10px);
+    animation: fadeRise 0.6s ease forwards 0.12s;
+}
+
+.intro-line{
+    display: block;
+    font-size: 1.08rem;
+    line-height: 1.55;
+    color: #F2F0E6;
+}
+
+.intro-line-secondary{
+    color: rgba(130, 241, 255, 0.96);
+}
+
+.info-cards{
+    display: grid;
+    gap: 18px;
+}
+
+.info-card{
+    padding: 18px 20px;
+    border: 1px solid rgba(16, 223, 255, 0.18);
+    border-radius: 14px;
+    background: rgba(7, 7, 26, 0.18);
+    transition: transform 0.22s ease, border-color 0.22s ease, box-shadow 0.22s ease;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeRise 0.55s ease forwards;
+}
+
+.info-card:nth-child(1){
+    animation-delay: 0.2s;
+}
+
+.info-card:nth-child(2){
+    animation-delay: 0.3s;
+}
+
+.info-card:hover{
+    transform: translateY(-3px);
+    border-color: rgba(130, 241, 255, 0.34);
+    box-shadow: 0 16px 28px rgba(6, 24, 46, 0.22);
+}
+
+.glow-card{
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    --scan-duration: 3s;
+}
+
+.glow-card::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(
+        circle 82px at var(--glow-x, 50%) var(--glow-y, 50%),
+        rgba(16, 223, 255, 0.95) 0 5px,
+        rgba(16, 223, 255, 0.52) 14px,
+        rgba(16, 223, 255, 0.24) 30px,
+        rgba(16, 223, 255, 0.11) 50px,
+        rgba(16, 223, 255, 0.035) 68px,
+        rgba(16, 223, 255, 0) 82px
+    );
+    opacity: 0;
+    filter: blur(6px);
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.glow-card:hover::before{
+    opacity: 1;
+}
+
+.glow-card::after{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        repeating-linear-gradient(
+            60deg,
+            rgba(16, 223, 255, 0.13) 0 1px,
+            transparent 1px 16px
+        ),
+        repeating-linear-gradient(
+            -60deg,
+            rgba(16, 223, 255, 0.11) 0 1px,
+            transparent 1px 16px
+        );
+    background-size: 22px 20px, 22px 20px;
+    background-position:
+        calc(var(--glow-x, 50%) - 11px) calc(var(--glow-y, 50%) - 10px),
+        calc(var(--glow-x, 50%) - 11px) calc(var(--glow-y, 50%) - 10px);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 0;
+    mask-image: radial-gradient(
+        circle 78px at var(--glow-x, 50%) var(--glow-y, 50%),
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.74) 30%,
+        rgba(0, 0, 0, 0.32) 64%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+        circle 78px at var(--glow-x, 50%) var(--glow-y, 50%),
+        rgba(0, 0, 0, 0.9) 0%,
+        rgba(0, 0, 0, 0.74) 30%,
+        rgba(0, 0, 0, 0.32) 64%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.glow-card:hover::after{
+    opacity: 0.48;
+}
+
+.glow-card > *{
+    position: relative;
+    z-index: 1;
+}
+
+.glow-scan{
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    mask-image: radial-gradient(
+        circle 82px at var(--glow-x, 50%) var(--glow-y, 50%),
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.72) 36%,
+        rgba(0, 0, 0, 0.22) 72%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+        circle 82px at var(--glow-x, 50%) var(--glow-y, 50%),
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.72) 36%,
+        rgba(0, 0, 0, 0.22) 72%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.glow-scan::before{
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        transparent 0%,
+        rgba(130, 241, 255, 0.06) 42%,
+        rgba(130, 241, 255, 0.22) 50%,
+        rgba(130, 241, 255, 0.06) 58%,
+        transparent 100%
+    );
+    transform: translateY(-130%);
+}
+
+.glow-card:hover .glow-scan{
+    opacity: 1;
+}
+
+.glow-card:hover .glow-scan::before{
+    animation: scanSweep var(--scan-duration) linear infinite;
+}
+
+.info-card h2{
+    margin: 0 0 12px;
+    color: #F2F0E6;
+    font-family: Quantico, Arial, Helvetica;
+    font-size: 1rem;
+}
+
+.info-card ul{
+    margin: 0;
+    padding-left: 18px;
+}
+
+.info-card li{
+    margin-bottom: 10px;
+    line-height: 1.7;
+    font-size: 0.97rem;
+}
+
+.info-card li:last-child{
+    margin-bottom: 0;
+}
+
+.about-skills{
+    --scan-duration: 6.2s;
+    padding: 20px 22px 40px;
+    border: 1px solid rgba(16, 223, 255, 0.18);
+    border-radius: 14px;
+    background: rgba(7, 7, 26, 0.18);
+    opacity: 0;
+    transform: translateY(12px);
+    animation: fadeRise 0.6s ease forwards 0.4s;
+}
+
+.skills-reveal{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 86px;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.16s ease;
+    mask-image: radial-gradient(
+        ellipse 118px 48px at var(--glow-x, 50%) var(--glow-y, 50%),
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.82) 34%,
+        rgba(0, 0, 0, 0.32) 70%,
+        rgba(0, 0, 0, 0) 100%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse 118px 48px at var(--glow-x, 50%) var(--glow-y, 50%),
+        rgba(0, 0, 0, 0.95) 0%,
+        rgba(0, 0, 0, 0.82) 34%,
+        rgba(0, 0, 0, 0.32) 70%,
+        rgba(0, 0, 0, 0) 100%
+    );
+}
+
+.about-skills:hover .skills-reveal{
+    opacity: 1;
+}
+
+.skills-reveal span{
+    position: absolute;
+    right: 22px;
+    top: 25px;
+    color: rgba(182, 247, 255, 0.98);
+    font-family: Quantico, Arial, Helvetica;
+    font-size: 1.18rem;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-shadow: 0 0 16px rgba(16, 223, 255, 0.42);
+    white-space: nowrap;
+}
+
+.about-skills h2{
+    margin: 0 0 26px;
+    font-size: 1.38rem;
+    color: #F2F0E6;
+    font-family: Quantico, Arial, Helvetica;
+}
+
+.skill-list{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 22px;
+    row-gap: 28px;
+}
+
+.skill-item{
+    margin-bottom: 0;
+}
+
+.skill-row{
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    margin-bottom: 9px;
+    font-size: 1rem;
+}
+
+.skill-bar{
+    height: 10px;
+    background: rgba(242, 240, 230, 0.15);
+    border-radius: 999px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-bar span{
+    display: block;
+    height: 100%;
+    background-color: #10dfff;
+    border-radius: inherit;
+    box-shadow: 0 0 10px rgba(16, 223, 255, 0.25);
+    transform-origin: left center;
+    transform: scaleX(0);
+    animation: fillBar 1s ease forwards;
+}
+
+.skill-item:nth-child(1) .skill-bar span{ animation-delay: 0.45s; }
+.skill-item:nth-child(2) .skill-bar span{ animation-delay: 0.5s; }
+.skill-item:nth-child(3) .skill-bar span{ animation-delay: 0.55s; }
+.skill-item:nth-child(4) .skill-bar span{ animation-delay: 0.6s; }
+.skill-item:nth-child(5) .skill-bar span{ animation-delay: 0.65s; }
+.skill-item:nth-child(6) .skill-bar span{ animation-delay: 0.7s; }
+.skill-item:nth-child(7) .skill-bar span{ animation-delay: 0.75s; }
+.skill-item:nth-child(8) .skill-bar span{ animation-delay: 0.8s; }
+.skill-item:nth-child(9) .skill-bar span{ animation-delay: 0.85s; }
+
+.skill-bar::after{
+    content: "";
+    position: absolute;
+    top: -6px;
+    left: calc(var(--glow-x, 50%) - 42px);
+    width: 84px;
+    height: 22px;
+    background: radial-gradient(
+        ellipse at center,
+        rgba(182, 247, 255, 0.72) 0%,
+        rgba(182, 247, 255, 0.2) 48%,
+        rgba(182, 247, 255, 0) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.18s ease;
+    pointer-events: none;
+}
+
+.about-skills:hover .skill-bar::after{
+    opacity: 0.55;
+}
+
+@keyframes fadeRise{
+    from{
+        opacity: 0;
+        transform: translateY(12px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scanSweep{
+    from{
+        transform: translateY(-130%);
+    }
+    to{
+        transform: translateY(130%);
+    }
+}
+
+@keyframes fillBar{
+    from{
+        transform: scaleX(0);
+    }
+    to{
+        transform: scaleX(1);
+    }
+}
+
+@media (max-width: 900px){
+    body{
+        overflow-y: auto;
+    }
+
+    .about-content{
+        margin: 28px 32px 40px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .skills-reveal{
+        display: none;
+    }
+
+    .skill-list{
+        grid-template-columns: 1fr;
+        row-gap: 14px;
+    }
 }
