@@ -45,23 +45,92 @@
                 </li>
                 <li>
                     <a href="/contact.html">
-                        <span class="nav-icon"><i class="fa-solid fa-envelope" style="color: #10dfff;;"></i></span>
+                        <span class="nav-icon"><i class="fa-solid fa-envelope" style="color: #10dfff;"></i></span>
                         <span class="nav-label">Contact</span>
                     </a>
                 </li>
             </ul>
         </nav>
-        <h1>Contact me</h1>
-        <pre>Thank you for your interest in getting in touch!
 
-I value open communication and welcome any inquiries, 
-feedback, or collaboration opportunities. Please don't hesitate 
-to get in touch with me by filling out the contact form.
-        </pre>
-         <a href="https://www.linkedin.com/feed/" >
-                        <span class="socialwork"><i class="fa-brands fa-square-linkedin fa-2xl" style="color: #1c1c3b;"></i></span>
-        </a>
-        <a href="mailto:andreazevedomontenegro@gmail.coms">
-                        <span class="socialwork socialwork-envelope"><i class="fa-solid fa-envelope fa-2xl" style="color: #1c1c3b;"></i></span>
+        <h1>Contact me</h1>
+        <br>
+        <main class="contact-layout">
+            <section class="contact-copy">
+                <p class="contact-kicker">Let&apos;s connect</p>
+                <p class="contact-lead">
+                    Open to thoughtful conversations, collaborations, and new opportunities.
+                </p>
+                <p class="contact-body">
+                    If you want to discuss  internships, software projects, or AI, feel free to reach out through the channels below.
+                </p>
+
+                <div class="contact-links">
+                    <div class="contact-line">
+                        <span class="contact-line-label">Email <span class="contact-line-meta"> andreazevedomontenegro@gmail.com</span></span>
+                        <div class="contact-line-actions">
+                            <button class="contact-action" type="button" data-copy-email="andreazevedomontenegro@gmail.com">Copy</button>
+                            <a class="contact-action" href="mailto:andreazevedomontenegro@gmail.com">Send email</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-line">
+                        <span class="contact-line-label">LinkedIn</span>
+                        <div class="contact-line-actions">
+                            <a class="contact-action" href="https://www.linkedin.com/in/andreazevedomontenegro/" target="_blank" rel="noopener noreferrer">Open</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-line">
+                        <span class="contact-line-label">GitHub</span>
+                        <div class="contact-line-actions">
+                            <a class="contact-action" href="https://github.com/omonttenegro" target="_blank" rel="noopener noreferrer">Open</a>
+                        </div>
+                    </div>
+
+                    <div class="contact-line contact-line-static">
+                        <span class="contact-line-label">Location</span>
+                        <span class="contact-line-value">Lisbon, Portugal</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="contact-visual" aria-hidden="true">
+                <div class="visual-grid"></div>
+                <div class="visual-orbit visual-orbit-one"></div>
+                <div class="visual-orbit visual-orbit-two"></div>
+                <div class="visual-orbit visual-orbit-three"></div>
+                <span class="visual-node visual-node-one"></span>
+                <span class="visual-node visual-node-two"></span>
+                <span class="visual-node visual-node-three"></span>
+                <span class="visual-node visual-node-four"></span>
+
+                <div class="visual-core">
+                    <div class="visual-halo"></div>
+                    <img class="visual-logo" src="icon2.png" alt="Andre Montenegro logo">
+                </div>
+            </section>
+        </main>
+
+        <script>
+            const copyEmailButton = document.querySelector("[data-copy-email]");
+
+            if (copyEmailButton) {
+                copyEmailButton.addEventListener("click", async () => {
+                    const email = copyEmailButton.dataset.copyEmail;
+                    const originalText = copyEmailButton.textContent;
+
+                    try {
+                        await navigator.clipboard.writeText(email);
+                        copyEmailButton.textContent = "Copied";
+                    } catch (error) {
+                        copyEmailButton.textContent = "Failed";
+                    }
+
+                    window.setTimeout(() => {
+                        copyEmailButton.textContent = originalText;
+                    }, 1200);
+                });
+            }
+        </script>
     </body>
 </html>

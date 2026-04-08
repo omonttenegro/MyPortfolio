@@ -18,7 +18,6 @@ body{
     overflow: hidden;
 }
 
-
 .navbar{
     display: flex;
     align-items: center;
@@ -106,30 +105,567 @@ body{
     transform: translate(-50%, -50%);
 }
 
-
-
 h1{
-    color: #F2F0E6; 
-    margin: 110px 0 0 130px;
+    color: #F2F0E6;
+    margin: 68px 0 0 130px;
     font-family: Quantico, Arial, Helvetica;
     font-size: 2.8em;
     line-height: 1.1;
+    opacity: 0;
+    transform: translateY(16px);
+    animation: contactTitleIn 0.66s cubic-bezier(0.22, 1, 0.36, 1) 0.06s forwards;
 }
 
-pre{
+.contact-layout{
+    margin: 10px 130px 0;
+    display: grid;
+    grid-template-columns: minmax(320px, 0.84fr) minmax(380px, 1.16fr);
+    gap: 30px;
+    align-items: center;
+    height: calc(100vh - 184px);
+    padding-bottom: 34px;
+    box-sizing: border-box;
+}
+
+.contact-copy{
+    max-width: 32rem;
     color: #F2F0E6;
-    margin: 40px 0 0 130px;
-    line-height: 1.4;
-    font-size: 1.25em;
+    font-family: Quantico, Arial, Helvetica;
+    align-self: start;
+    padding-top: 6px;
+    opacity: 0;
+    transform: translateY(18px);
+    animation: contactCopyIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.14s forwards;
+}
+
+.contact-kicker{
+    margin: 0 0 10px;
+    color: rgba(130, 241, 255, 0.92);
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.72rem;
+}
+
+.contact-lead{
+    margin: 0;
+    max-width: 29rem;
+    font-size: 1.22rem;
+    line-height: 1.56;
+}
+
+.contact-body{
+    margin: 14px 0 0;
+    max-width: 27rem;
+    font-size: 0.96rem;
+    line-height: 1.82;
+    color: rgba(242, 240, 230, 0.8);
+}
+
+.contact-links{
+    margin-top: 28px;
+    display: grid;
+    gap: 12px;
+}
+
+.contact-line{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid rgba(16, 223, 255, 0.14);
+    text-decoration: none;
+    transition: border-color 0.18s ease, transform 0.18s ease;
+    opacity: 0;
+    transform: translateY(14px);
+    animation: contactLineIn 0.62s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.contact-line:hover{
+    transform: translateX(2px);
+    border-color: rgba(16, 223, 255, 0.32);
+}
+
+.contact-line:nth-child(1){
+    animation-delay: 0.24s;
+}
+
+.contact-line:nth-child(2){
+    animation-delay: 0.31s;
+}
+
+.contact-line:nth-child(3){
+    animation-delay: 0.38s;
+}
+
+.contact-line:nth-child(4){
+    animation-delay: 0.45s;
+}
+
+.contact-line-static{
+    cursor: default;
+}
+
+.contact-line-label,
+.contact-line-value,
+.contact-action{
     font-family: Quantico, Arial, Helvetica;
 }
 
-.socialwork{
-    display: inline-block;
-    font-size: 4em;
-    margin: 48px 0 0 170px;
+.contact-line-label{
+    color: #F2F0E6;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: baseline;
+    gap: 0.38rem;
+    flex-wrap: nowrap;
 }
 
-.socialwork-envelope{
-    margin-left: 110px;
+.contact-line-meta{
+    color: rgba(242, 240, 230, 0.48);
+    font-size: 0.84rem;
+    white-space: nowrap;
+}
+
+.contact-line-actions{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.contact-action{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 78px;
+    height: 34px;
+    padding: 0 14px;
+    border-radius: 999px;
+    border: 1px solid rgba(16, 223, 255, 0.24);
+    background: rgba(10, 30, 54, 0.48);
+    color: rgba(130, 241, 255, 0.92);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    cursor: pointer;
+    transition:
+        transform 0.18s ease,
+        border-color 0.18s ease,
+        background-color 0.18s ease,
+        box-shadow 0.18s ease,
+        color 0.18s ease;
+}
+
+.contact-action:hover,
+.contact-action:focus-visible{
+    transform: translateY(-1px);
+    border-color: rgba(124, 239, 255, 0.46);
+    background: rgba(12, 44, 76, 0.7);
+    color: #d9fbff;
+    box-shadow: 0 0 16px rgba(16, 223, 255, 0.12);
+    outline: none;
+}
+
+.contact-line-value{
+    color: rgba(130, 241, 255, 0.88);
+    font-size: 0.88rem;
+    text-align: right;
+}
+
+.contact-visual{
+    position: relative;
+    min-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translateY(-86px) scale(0.99);
+    opacity: 0;
+    animation: contactVisualIn 0.88s cubic-bezier(0.22, 1, 0.36, 1) 0.16s forwards;
+}
+
+.visual-grid,
+.visual-orbit{
+    position: absolute;
+    inset: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+.visual-grid{
+    width: 700px;
+    height: 500px;
+    background:
+        radial-gradient(circle at 50% 50%, rgba(16, 223, 255, 0.16) 0%, rgba(16, 223, 255, 0.07) 23%, rgba(16, 223, 255, 0) 58%),
+        radial-gradient(circle at 50% 50%, rgba(124, 239, 255, 0.08) 0%, rgba(124, 239, 255, 0) 70%),
+        linear-gradient(180deg, rgba(16, 223, 255, 0.12) 0%, rgba(16, 223, 255, 0.04) 30%, rgba(16, 223, 255, 0) 72%);
+    filter: blur(24px);
+    opacity: 0.76;
+    animation: auraDrift 7.2s ease-in-out infinite;
+}
+
+.visual-orbit{
+    border: 1px solid rgba(130, 241, 255, 0.14);
+    border-radius: 50%;
+}
+
+.visual-orbit-one{
+    width: 404px;
+    height: 404px;
+    box-shadow:
+        inset 0 0 0 1px rgba(16, 223, 255, 0.08),
+        0 0 30px rgba(16, 223, 255, 0.06);
+    animation: orbitSpin 16s linear infinite, orbitBreath 6.8s ease-in-out infinite;
+}
+
+.visual-orbit-two{
+    width: 500px;
+    height: 500px;
+    border: none;
+    background: conic-gradient(
+        from 90deg,
+        rgba(16, 223, 255, 0) 0deg,
+        rgba(16, 223, 255, 0.28) 44deg,
+        rgba(16, 223, 255, 0.08) 92deg,
+        rgba(16, 223, 255, 0) 130deg,
+        rgba(16, 223, 255, 0) 360deg
+    );
+    mask: radial-gradient(circle, transparent 70%, black 71%, black 72.5%, transparent 73.5%);
+    -webkit-mask: radial-gradient(circle, transparent 70%, black 71%, black 72.5%, transparent 73.5%);
+    animation: orbitSpinReverse 10s linear infinite, orbitBreathWide 5.8s ease-in-out infinite;
+}
+
+.visual-orbit-three{
+    width: 600px;
+    height: 350px;
+    border-color: rgba(130, 241, 255, 0.08);
+    transform: translate(-50%, -50%) rotate(-18deg);
+    animation: orbitTiltFloat 5.8s ease-in-out infinite;
+}
+
+.visual-core{
+    position: relative;
+    width: 450px;
+    height: 450px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.visual-halo{
+    position: absolute;
+    inset: 12px;
+    border-radius: 50%;
+    background:
+        radial-gradient(circle, rgba(16, 223, 255, 0.34) 0%, rgba(16, 223, 255, 0.12) 34%, rgba(16, 223, 255, 0) 72%);
+    filter: blur(16px);
+    animation: haloPulse 3.7s ease-in-out infinite;
+}
+
+.visual-logo{
+    position: relative;
+    z-index: 2;
+    width: 280px;
+    height: auto;
+    margin-top: -60px;
+    filter: drop-shadow(0 0 34px rgba(16, 223, 255, 0.22));
+    animation: logoFloat 5.6s ease-in-out infinite;
+}
+
+.visual-node{
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #7cefff;
+    box-shadow: 0 0 10px rgba(16, 223, 255, 0.24);
+    opacity: 0.58;
+    animation: nodePulse 4.2s ease-in-out infinite;
+}
+
+.visual-node-one{
+    top: 62px;
+    right: 120px;
+}
+
+.visual-node-two{
+    top: 228px;
+    left: 58px;
+}
+
+.visual-node-three{
+    right: 58px;
+    bottom: 132px;
+}
+
+.visual-node-four{
+    left: 126px;
+    bottom: 62px;
+    animation-delay: 1.4s;
+}
+
+.visual-node-one{
+    animation-delay: 0.4s;
+}
+
+.visual-node-two{
+    animation-delay: 1s;
+}
+
+.visual-node-three{
+    animation-delay: 1.8s;
+}
+
+@keyframes logoFloat{
+    0%, 100%{
+        transform: translateY(0);
+    }
+    50%{
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes contactTitleIn{
+    from{
+        opacity: 0;
+        transform: translateY(16px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contactCopyIn{
+    from{
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contactLineIn{
+    from{
+        opacity: 0;
+        transform: translateY(14px);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes contactVisualIn{
+    from{
+        opacity: 0;
+        transform: translateY(-48px) scale(0.95);
+    }
+    to{
+        opacity: 1;
+        transform: translateY(-86px) scale(1);
+    }
+}
+
+@keyframes haloPulse{
+    0%, 100%{
+        opacity: 0.74;
+        transform: scale(0.95);
+    }
+    50%{
+        opacity: 1;
+        transform: scale(1.08);
+    }
+}
+
+@keyframes auraDrift{
+    0%, 100%{
+        opacity: 0.68;
+        transform: translate(-50%, -50%) scale(0.96);
+    }
+    25%{
+        opacity: 0.8;
+        transform: translate(-48%, -52%) scale(1.01);
+    }
+    50%{
+        opacity: 0.92;
+        transform: translate(-51%, -48%) scale(1.05);
+    }
+    75%{
+        opacity: 0.8;
+        transform: translate(-49%, -51%) scale(1);
+    }
+}
+
+@keyframes orbitSpin{
+    from{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes orbitBreath{
+    0%, 100%{
+        box-shadow:
+            inset 0 0 0 1px rgba(16, 223, 255, 0.06),
+            0 0 24px rgba(16, 223, 255, 0.04);
+    }
+    50%{
+        box-shadow:
+            inset 0 0 0 1px rgba(16, 223, 255, 0.14),
+            0 0 42px rgba(16, 223, 255, 0.14);
+    }
+}
+
+@keyframes orbitSpinReverse{
+    from{
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    to{
+        transform: translate(-50%, -50%) rotate(-360deg);
+    }
+}
+
+@keyframes orbitBreathWide{
+    0%, 100%{
+        opacity: 0.78;
+        filter: brightness(0.94);
+    }
+    50%{
+        opacity: 1;
+        filter: brightness(1.16);
+    }
+}
+
+@keyframes orbitTiltFloat{
+    0%, 100%{
+        opacity: 0.54;
+        transform: translate(-50%, -50%) rotate(-18deg) scale(0.98);
+    }
+    50%{
+        opacity: 0.9;
+        transform: translate(-50%, -50%) rotate(-10deg) scale(1.05);
+    }
+}
+
+@keyframes nodePulse{
+    0%, 100%{
+        opacity: 0.5;
+        transform: scale(1);
+    }
+    50%{
+        opacity: 1;
+        transform: scale(1.25);
+    }
+}
+
+@media (max-width: 980px){
+    body{
+        overflow-y: auto;
+    }
+
+    h1{
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .contact-layout{
+        margin: 30px 32px 42px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        height: auto;
+        padding-bottom: 0;
+    }
+
+    .contact-copy{
+        max-width: none;
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+
+    .contact-visual{
+        min-height: 380px;
+        transform: none;
+        opacity: 1;
+        animation: none;
+    }
+
+    .contact-line-value{
+        max-width: 15rem;
+    }
+
+    .contact-line{
+        opacity: 1;
+        transform: none;
+        animation: none;
+    }
+}
+
+@media (max-width: 640px){
+    h1{
+        margin: 76px 0 0 24px;
+        font-size: 2.3em;
+    }
+
+    .contact-layout{
+        margin: 24px 16px 36px;
+    }
+
+    .contact-lead{
+        font-size: 1.12rem;
+    }
+
+    .contact-line{
+        gap: 16px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .contact-line-actions{
+        justify-content: flex-start;
+        flex-wrap: wrap;
+    }
+
+    .contact-line-value{
+        text-align: left;
+    }
+
+    .contact-visual{
+        min-height: 300px;
+    }
+
+    .visual-core{
+        width: 250px;
+        height: 250px;
+    }
+
+    .visual-logo{
+        width: 138px;
+    }
+
+    .visual-orbit-one{
+        width: 220px;
+        height: 220px;
+    }
+
+    .visual-orbit-two{
+        width: 280px;
+        height: 280px;
+    }
+
+    .visual-orbit-three{
+        width: 320px;
+        height: 190px;
+    }
+
+    .visual-grid{
+        width: 320px;
+        height: 250px;
+    }
 }
