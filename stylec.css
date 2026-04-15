@@ -1,7 +1,6 @@
 html{
     height: 100%;
     background: #07071a;
-    overscroll-behavior: none;
 }
 
 body{
@@ -15,7 +14,7 @@ body{
     );
     background-repeat: no-repeat;
     margin: 0px;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 .navbar{
@@ -107,7 +106,7 @@ body{
 
 h1{
     color: #F2F0E6;
-    margin: 68px 0 0 130px;
+    margin: 84px 0 0 130px;
     font-family: Quantico, Arial, Helvetica;
     font-size: 2.8em;
     line-height: 1.1;
@@ -117,13 +116,13 @@ h1{
 }
 
 .contact-layout{
-    margin: 10px 130px 0;
+    margin: 18px 130px 0;
     display: grid;
     grid-template-columns: minmax(320px, 0.84fr) minmax(380px, 1.16fr);
     gap: 30px;
     align-items: center;
-    height: calc(100vh - 184px);
-    padding-bottom: 34px;
+    height: calc(100vh - 236px);
+    padding-bottom: 0;
     box-sizing: border-box;
 }
 

@@ -1,7 +1,6 @@
 html{
     height: 100%;
     background: #07071a;
-    overscroll-behavior: none;
 }
 
 body{
@@ -17,7 +16,7 @@ body{
     background-attachment: fixed;
     background-repeat: no-repeat;
     margin: 0px;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 h1{
@@ -138,9 +137,10 @@ h1{
 
 
 .card {
-    width: 230px;
-    height: 120px;
+    width: 248px;
+    height: 132px;
     padding: 0.5rem;
+    box-sizing: border-box;
     border-radius: 8px;
     backdrop-filter: blur(5px);
     border-bottom: 3px solid rgba(255, 255, 255, 0.440);
@@ -150,7 +150,7 @@ h1{
     transition: .4s;
     overflow: hidden;
     color: white;
-    margin: 60px 0px;
+    margin: 0;
     position: relative;
 
     background-image: var(--card-bg);
@@ -177,6 +177,22 @@ h1{
     animation-delay: 0.44s;
 }
 
+.cards-container .card:nth-child(5) {
+    animation-delay: 0.54s;
+}
+
+.cards-container .card:nth-child(6) {
+    animation-delay: 0.64s;
+}
+
+.cards-container .card:nth-child(7) {
+    animation-delay: 0.74s;
+}
+
+.cards-container .card:nth-child(8) {
+    animation-delay: 0.84s;
+}
+
 .card::before {
     content: "";
     position: absolute;
@@ -192,8 +208,8 @@ h1{
 }
 
 .card:hover {
-    height: 300px;
-    width: 290px;
+    height: 318px;
+    width: 308px;
     transform: skew(0deg);
 }
 
@@ -276,19 +292,18 @@ h1{
         max-height 0s linear 0.65s,
         margin-top 0.25s ease;
     margin: 0 auto;
-    max-width: 210px;
+    max-width: 224px;
     font-family: "Orbitron", sans-serif;
 }
 
 
 .cards-container {
     display: flex;
+    flex-wrap: wrap;
     gap: 40px;
     align-items: flex-start;
-}
-
-.cards-container .card:first-child {
-    margin-left: 190px;
+    margin: 60px 0 90px 190px;
+    width: 1260px;
 }
 
 .shadow__btn {

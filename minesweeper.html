@@ -6,9 +6,9 @@
         <link rel="icon" type="image/png" href="icon2.png">
         <link rel="shortcut icon" type="image/png" href="icon2.png">
         <link rel="apple-touch-icon" href="icon2.png">
-        <link rel="stylesheet" href="stylet.css">
+        <link rel="stylesheet" href="stylem.css">
         <script src="https://kit.fontawesome.com/57dbc1bff3.js" crossorigin="anonymous"></script>
-        <title>Tic-Tac-Toe AI | Andre's Portfolio</title>
+        <title>Minesweeper AI | Andre's Portfolio</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
@@ -37,7 +37,7 @@
                 <li>
                     <a href="work.html">
                         <span class="nav-icon"><i class="fa-solid fa-suitcase"></i></span>
-                        <span class="nav-label">Work</span>
+                        <span class="nav-label">Experience</span>
                     </a>
                 </li>
                 <li>
@@ -59,32 +59,38 @@
             <section class="hero-layout">
                 <div class="hero-copy">
                     <p class="eyebrow">Project spotlight</p>
-                    <h1>AI Tic-Tac-Toe</h1>
+                    <h1>AI Minesweeper</h1>
                     <p class="intro">
-                        This project was originally built in Python and later migrated to JavaScript
-                        for this web version, keeping the same Minimax-driven game logic while making
-                        it directly playable inside the portfolio.
+                        Originally built in Python for CS50 AI, this project uses knowledge-based reasoning,
+                        sentence inference, safe-move selection, and fallback random moves to solve Minesweeper.
                     </p>
 
                     <div class="meta-list">
-                        <div class="meta-pill">Minimax decision-making</div>
-                        <div class="meta-pill">Responsive game layout</div>
-                        <div class="meta-pill">Unbeatable AI opponent</div>
+                        <div class="meta-pill">Knowledge-based AI</div>
+                        <div class="meta-pill">Sentence inference</div>
+                        <div class="meta-pill">Safe and random move logic</div>
                     </div>
 
                     <div class="actions">
-                        <a class="primary-link" href="https://github.com/omonttenegro/AI_Tictactoe/tree/main" target="_blank" rel="noopener noreferrer">View code</a>
+                        <a class="primary-link" href="https://github.com/omonttenegro/minesweeper-ai" target="_blank" rel="noopener noreferrer">View Code</a>
                         <a class="secondary-link" href="portfolio.html">Back to projects</a>
-                        
                     </div>
 
                     <section class="details-grid">
                         <article class="info-card">
-                            <h2>Core logic</h2>
+                            <h2>Core ideas</h2>
                             <ul>
-                                <li>Board state tracking</li>
-                                <li>Win, draw, and turn resolution</li>
-                                <li>Minimax search for best move selection</li>
+                                <li>Each revealed clue creates a sentence over nearby hidden cells.</li>
+                                <li>The AI infers safe cells and known mines from the knowledge base.</li>
+                                <li>When logic is exhausted, it falls back to a random move.</li>
+                            </ul>
+                        </article>
+                        <article class="info-card">
+                            <h2>Controls</h2>
+                            <ul>
+                                <li>Left click to reveal a cell.</li>
+                                <li>Right click or use flag mode to place flags.</li>
+                                <li>Use AI Step or Autoplay to watch the reasoning engine in action.</li>
                             </ul>
                         </article>
                     </section>
@@ -94,33 +100,24 @@
                     <div class="demo-topbar">
                         <div>
                             <p class="status-label">Live demo</p>
-                            <p class="status-text" id="status-text">Choose whether you want to play as X or O.</p>
+                            <p class="status-text" id="status-text">Reveal a cell to start, or let the AI make the first move.</p>
                         </div>
-                        <button class="secondary-link control-button" id="restart-button" type="button">Restart</button>
+                        <button class="secondary-link control-button" id="new-game-button" type="button">Restart</button>
                     </div>
 
                     <div class="demo-controls">
-                        <div class="player-picker">
-                            <button class="player-button" data-player="X" type="button">Play as X</button>
-                            <button class="player-button" data-player="O" type="button">Play as O</button>
-                        </div>
+                        <button class="player-button" id="ai-step-button" type="button">AI step</button>
+                        <button class="player-button" id="autoplay-button" type="button">Autoplay off</button>
+                        <button class="player-button" id="flag-mode-button" type="button">Flag mode off</button>
                     </div>
 
-                    <div class="board" aria-label="Tic-Tac-Toe board" role="grid">
-                        <button class="cell" data-row="0" data-col="0" type="button" aria-label="Row 1 Column 1"></button>
-                        <button class="cell" data-row="0" data-col="1" type="button" aria-label="Row 1 Column 2"></button>
-                        <button class="cell" data-row="0" data-col="2" type="button" aria-label="Row 1 Column 3"></button>
-                        <button class="cell" data-row="1" data-col="0" type="button" aria-label="Row 2 Column 1"></button>
-                        <button class="cell" data-row="1" data-col="1" type="button" aria-label="Row 2 Column 2"></button>
-                        <button class="cell" data-row="1" data-col="2" type="button" aria-label="Row 2 Column 3"></button>
-                        <button class="cell" data-row="2" data-col="0" type="button" aria-label="Row 3 Column 1"></button>
-                        <button class="cell" data-row="2" data-col="1" type="button" aria-label="Row 3 Column 2"></button>
-                        <button class="cell" data-row="2" data-col="2" type="button" aria-label="Row 3 Column 3"></button>
+                    <div class="board-shell">
+                        <div class="board" id="board" aria-label="Minesweeper board" role="grid"></div>
                     </div>
                 </section>
             </section>
         </main>
 
-        <script src="tictactoedemo.js"></script>
+        <script src="minesweeperdemo.js"></script>
     </body>
 </html>

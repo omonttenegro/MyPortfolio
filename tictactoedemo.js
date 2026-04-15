@@ -176,7 +176,9 @@ function resetGame() {
     user = null;
     board = initialState();
     statusText.textContent = "Choose whether you want to play as X or O.";
-    turnIndicator.textContent = "Waiting for player selection.";
+    if (turnIndicator) {
+        turnIndicator.textContent = "";
+    }
 
     for (const button of playerButtons) {
         button.classList.remove("active");
@@ -226,25 +228,19 @@ function renderBoard() {
 
     if (gameOver) {
         if (gameWinner === null) {
-            statusText.textContent = "Game over: tie.";
-            turnIndicator.textContent = "Nobody wins when both players are perfect.";
+            statusText.textContent = "Nobody wins when both players are perfect.";
         } else if (gameWinner === user) {
-            statusText.textContent = `Game over: ${user} wins.`;
-            turnIndicator.textContent = "You found a winning line.";
+            statusText.textContent = "You found a winning line.";
         } else {
-            statusText.textContent = `Game over: ${gameWinner} wins.`;
-            turnIndicator.textContent = "The AI finished the game optimally.";
+            statusText.textContent = "The AI finished the game optimally.";
         }
         return;
     }
 
     if (currentPlayer === user) {
-        statusText.textContent = `Your turn as ${user}.`;
-        turnIndicator.textContent = "Choose any open tile.";
+        statusText.textContent = "Choose any open tile.";
     } else {
-        const aiPlayer = user === X ? O : X;
-        statusText.textContent = `Computer thinking as ${aiPlayer}.`;
-        turnIndicator.textContent = "Minimax is evaluating the best move.";
+        statusText.textContent = "Minimax is evaluating the best move.";
     }
 }
 

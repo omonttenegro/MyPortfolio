@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/png" href="icon2.png">
+        <link rel="shortcut icon" type="image/png" href="icon2.png">
+        <link rel="apple-touch-icon" href="icon2.png">
+        <link rel="stylesheet" href="styletraffic.css">
+        <script src="https://kit.fontawesome.com/57dbc1bff3.js" crossorigin="anonymous"></script>
+        <title>Traffic Sign Recognition | Andre's Portfolio</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+    </head>
+
+    <body>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <a href="home.html">
+                    <img src="icon2.png" alt="Logo">
+                </a>
+            </div>
+            <ul>
+                <li>
+                    <a href="home.html">
+                        <span class="nav-icon"><i class="fa-solid fa-house"></i></span>
+                        <span class="nav-label">Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="about.html">
+                        <span class="nav-icon"><i class="fa-solid fa-user"></i></span>
+                        <span class="nav-label">About</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="work.html">
+                        <span class="nav-icon"><i class="fa-solid fa-suitcase"></i></span>
+                        <span class="nav-label">Experience</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="portfolio.html">
+                        <span class="nav-icon"><i class="fa-solid fa-folder-open" style="color: #10dfff;"></i></span>
+                        <span class="nav-label">Projects</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="contact.html">
+                        <span class="nav-icon"><i class="fa-solid fa-envelope"></i></span>
+                        <span class="nav-label">Contact</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="project-page">
+            <section class="hero-layout">
+                <div class="hero-copy">
+                    <p class="eyebrow">Project spotlight</p>
+                    <h1>Traffic Sign Recognition</h1>
+                    <p class="intro">
+                        This project explores computer vision through a convolutional neural network trained to classify traffic sign images across multiple categories. It focuses on image preprocessing, supervised learning, and accurate visual recognition in a compact Python and TensorFlow workflow.
+                    </p>
+
+                    <div class="meta-list">
+                        <div class="meta-pill">Image classification with CNN</div>
+                        <div class="meta-pill">Multi-class traffic sign recognition</div>
+                        <div class="meta-pill">Python + TensorFlow workflow</div>
+                    </div>
+
+                    <div class="actions">
+                        <a class="primary-link" href="https://github.com/omonttenegro/traffic-sign-classification" target="_blank" rel="noopener noreferrer">View code</a>
+                        <a class="secondary-link" href="portfolio.html">Back to projects</a>
+                    </div>
+
+                    <section class="details-grid">
+                        <article class="info-card">
+                            <h2>Core logic</h2>
+                            <ul>
+                                <li>Image preprocessing and normalization</li>
+                                <li>Convolutional neural network training</li>
+                                <li>Classification across multiple traffic sign categories</li>
+                            </ul>
+                        </article>
+                    </section>
+                </div>
+
+                <section class="preview-panel">
+                    <div class="preview-header">
+                        <div>
+                            <p class="status-label">Prediction preview</p>
+                            <p class="status-text">Simulated view of the model prediction workflow</p>
+                        </div>
+                    </div>
+
+                    <div class="preview-main">
+                        <div class="input-card">
+                            <span class="preview-kicker">Input image</span>
+                            <img src="stop.png" alt="Stop sign sample">
+                        </div>
+
+                        <div class="pipeline-card">
+                            <span class="pipeline-node">Image resize</span>
+                            <span class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                            <span class="pipeline-node">CNN</span>
+                            <span class="pipeline-arrow"><i class="fa-solid fa-arrow-right"></i></span>
+                            <span class="pipeline-node">Prediction</span>
+                        </div>
+
+                        <div class="prediction-card">
+                            <span class="preview-kicker">Predicted class</span>
+                            <div class="prediction-result">
+                                <span class="prediction-label">Stop</span>
+                                <span class="prediction-score">96%</span>
+                            </div>
+                            <div class="probability-list">
+                                <div class="probability-row">
+                                    <span>Stop</span>
+                                    <span>96%</span>
+                                </div>
+                                <div class="probability-bar"><span style="width: 96%;"></span></div>
+
+                                <div class="probability-row">
+                                    <span>Yield</span>
+                                    <span>3%</span>
+                                </div>
+                                <div class="probability-bar"><span style="width: 3%;"></span></div>
+
+                                <div class="probability-row">
+                                    <span>Speed limit</span>
+                                    <span>1%</span>
+                                </div>
+                                <div class="probability-bar"><span style="width: 1%;"></span></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </section>
+        </main>
+    </body>
+</html>
