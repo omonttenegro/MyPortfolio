@@ -233,7 +233,7 @@ h1 {
 }
 
 .info-card {
-    padding: 18px 20px 34px;
+    padding: 18px 20px 15px;
 }
 
 .info-card h2 {
@@ -301,7 +301,7 @@ h1 {
 
 .prediction-card {
     grid-area: prediction;
-    padding-bottom: 18px;
+    padding-bottom: 22px;
 }
 
 .preview-kicker {
