@@ -249,6 +249,33 @@ h1{
     font-size: 0.82rem;
 }
 
+.experience-actions{
+    margin-top: 20px;
+}
+
+.experience-button{
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 18px;
+    border-radius: 999px;
+    border: 1px solid rgba(130, 241, 255, 0.35);
+    background: linear-gradient(135deg, rgba(16, 223, 255, 0.18), rgba(7, 20, 42, 0.82));
+    color: #f2f0e6;
+    font-family: Quantico, Arial, Helvetica;
+    font-size: 0.84rem;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.experience-button:hover{
+    transform: translateY(-2px);
+    border-color: rgba(130, 241, 255, 0.65);
+    box-shadow: 0 12px 24px rgba(16, 223, 255, 0.16);
+}
+
 @keyframes experienceFadeIn{
     from{
         opacity: 0;
